@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import Videos from './videos'
+import './App.css'
 
-function App() {
+const App = () => {
+  const [video, setVideo] = useState([])
+
+  useEffect(() => {
+    axios.get('https://theaudiodb.com/api/v1/json/1/mvid.php?i=111305')
+    .then(res => {
+      setVideo(res.data.mvids)
+    }).catch(err => alert('error'))
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <div className ='header-container'>
+    <h1>Rihanna's Music Videos</h1>
     </div>
-  );
+      {video.map(object => {
+        return (
+          <Videos
+          key={object.idTrack}
+          track={object.strTrack}
+          url={object.strMusicVid}
+          />
+        )
+      })}
+    </div>
+  )
 }
-
-export default App;
+export default App
