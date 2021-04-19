@@ -3,8 +3,10 @@ import './Videos.css'
 
 const Videos = ({url,track}) => {
     return (
-        <div className ='video-container'>
+        <div className='container'>
+        <div className ='link-container'>
             <a href={url}>{track}</a>
+        </div>
         </div>
 
     )

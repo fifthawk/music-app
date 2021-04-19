@@ -1,18 +1,18 @@
-.video-container {
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-	margin: auto;
-    background-color: whitesmoke;
-    padding: .3em;
-}
-a {
-	text-align: center;
-}
-a:hover{
-	color: red;
+.container {
+    display: grid;
+    grid-template-columns: 100px auto 110px;
+    grid-template-rows: 50pxauto;
+    grid-gap: .5em;
+    padding: .5em;
+    margin: auto 0;
+    justify-content: center;
 }
 
-body {
-	background-color: white;
-	}
+.url-container {
+    margin: auto 0;
+}
+
+
+
+
+
